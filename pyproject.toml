@@ -1,9 +1,36 @@
 [project]
 name = "add2num-mcp"
 version = "0.1.0"
-description = "Add your description here"
+description = "mcp server for adding two number"
 readme = "README.md"
 requires-python = ">=3.13"
+"main": "server.py",
+  "scripts": {
+    "start": "python server.py"
+  },
+  "mcp": {
+    "server": {
+      "command": "python",
+      "args": ["server.py"],
+      "env": {},
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "port": {
+            "type": "integer",
+            "description": "Port number for the server",
+            "default": 5000
+          },
+          "host": {
+            "type": "string",
+            "description": "Host address for the server",
+            "default": "localhost"
+          }
+        },
+        "required": []
+      }
+    }
+  },
 dependencies = [
     "mcp[cli]>=1.11.0",
 ]
